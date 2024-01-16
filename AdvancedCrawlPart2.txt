@@ -1,0 +1,47 @@
+Q1• How would you scale a high load of crawl POST requests? 
+Ans :
+Handling a high load of POST requests in this web API, especially in a web crawling scenario, Here are some strategies I have used:
+1.Async/Await Pattern:Utilize asynchronous programming with async and await to handle concurrent requests efficiently. This allows your server to handle multiple requests concurrently without blocking threads.
+2.Configure Service for Scalability:Configure the ASP.NET Core services to support scalability.
+3.Caching:Implement caching mechanisms for frequently requested data to reduce the load on your server. This can be in-memory caching used in my application architecture.
+4.Logging and exception handling:Implement through logging. this can help in tracking down issues.
+
+
+Q2• How would you scale a high load of GET requests? 
+Ans:
+Handling a high load of GET requests in a web crawling scenario that involves optimizing both the server and the crawling process. Here are some strategies used in this application
+1:Asynchronous Programming:
+Use asynchronous programming to handle multiple requests concurrently without blocking threads.
+In .NET Core, you can use async and await keywords to make your controllers and services asynchronous.
+2:Caching:
+Implement caching mechanisms to store frequently requested data temporarily, reducing the load on the server.
+3:Error Handling:
+Implement proper error handling to gracefully handle failures and prevent cascading issues.
+
+
+Q3• How would you solve deduplication when you scale out, so you do not visit an URL more than once? 
+Ans:
+Implemented a mechanism to remove deduplication and avoid visiting the same URL more than once while extracting titles and URLs based on a maximum depth traverse of HTML anchor tags using HtmlAgilityPack in this application,used a HashSet to keep track of visited URLs. 
+
+
+Q4• What will happen if you do not have the maxDepth parameter and would you make any changes to 
+your design/implementation? 
+Ans:
+Here we are using a HTML parsing library in this API application, such as HtmlAgilityPack, and we're not providing a maxdepth parameter, it might mean that we are extracting information from all levels of the HTML document's structure. Without a maximum depth limit,  code may recursively traverse through nested HTML elements, potentially resulting in a large amount of data being processed.
+Here are some potential outcomes and considerations:
+1.Increased Resource Usage: Without a maxdepth parameter, your code might recursively explore deeply nested HTML structures, consuming more memory and processing time.
+2.If the HTML structure is complex and deeply nested, we might extract more data than needed or encounter unexpected issues.
+3.Performance Impact: Deeper traversal could impact the performance of your application, especially if the HTML documents are large.
+If we want to limit the depth of the extraction, we could consider implementing your own depth control mechanism or using an existing library that provides such functionality.
+
+
+Q5• How would you detect loops? 
+Ans:if current depth is less then Maxdepth then based on anchor tag getting count and used foreach loop to traverse based on maxdepth
+
+Q6• How would you store the data?
+Ans:In this application , using memory caching can serve several purposes, mainly focused on improving the performance and responsiveness of your application. Here are some key purposes of using memory cache in API application:
+1.Improved Performance: Caching allows you to store frequently accessed data in memory, reducing the need to repeatedly fetch the same data from its original source (such as a database or external API). 
+2.Reduced Resource Usage: By caching data in memory, you can reduce the load on external resources (such as databases or APIs). This helps in optimizing resource usage and can prevent unnecessary strain on the underlying systems.
+3.Temporary Storage: Memory caching is suitable for storing data that needs to be retained temporarily. 
+
+
